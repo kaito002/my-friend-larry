@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwviw2wx2qi1t"]
+
+[ext_resource type="Script" path="res://door/door.gd" id="1_7qwtd"]
+[ext_resource type="Texture2D" uid="uid://cnndga0s0vymp" path="res://assets/terrains/Light/texture_07.png" id="1_vhyuo"]
+[ext_resource type="Texture2D" uid="uid://lo2ga2c271pp" path="res://assets/terrains/Green/texture_09.png" id="2_ax3el"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jg8yq"]
+albedo_texture = ExtResource("1_vhyuo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hehep"]
+albedo_texture = ExtResource("1_vhyuo")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_g2o3a"]
+albedo_texture = ExtResource("2_ax3el")
+
+[sub_resource type="Animation" id="Animation_xao4h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("openable_door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v760u"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("openable_door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2.8, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lkayf"]
+_data = {
+"RESET": SubResource("Animation_xao4h"),
+"open": SubResource("Animation_v760u")
+}
+
+[node name="door" type="Node3D"]
+script = ExtResource("1_7qwtd")
+
+[node name="border_right" type="CSGBox3D" parent="."]
+transform = Transform3D(0.366151, 0, 0, 0, 3.49483, 0, 0, 0, 0.404794, 0, 0, -1.25)
+material_override = SubResource("StandardMaterial3D_jg8yq")
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+
+[node name="border2_left" type="CSGBox3D" parent="."]
+transform = Transform3D(0.366151, 0, 0, 0, 3.49483, 0, 0, 0, 0.404794, 0, 0, 1.25)
+material_override = SubResource("StandardMaterial3D_hehep")
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+
+[node name="openable_door" type="CSGBox3D" parent="."]
+transform = Transform3D(0.186554, 0, 0, 0, 3.38456, 0, 0, 0, 2.32665, 0, 0, 0)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+material = SubResource("ORMMaterial3D_g2o3a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lkayf")
+}

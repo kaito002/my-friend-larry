@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy0axy8n5kt7a"]
+
+[ext_resource type="Texture2D" uid="uid://be2r5oqtxwxd1" path="res://assets/larry/larry_capsule_2d.png" id="1_e1rlb"]
+
+[node name="larry_bullet" type="TextureRect"]
+texture = ExtResource("1_e1rlb")

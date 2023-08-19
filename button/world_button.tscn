@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhbeevqymkb3t"]
+
+[ext_resource type="Texture2D" uid="uid://dmpettku10nb7" path="res://assets/world_button/texture_08.png" id="1_wods2"]
+[ext_resource type="Texture2D" uid="uid://da8gxuomag3a7" path="res://assets/world_button/texture_09.png" id="2_3hw4b"]
+[ext_resource type="Script" path="res://button/world_button.gd" id="3_0dwlv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfc8w"]
+albedo_texture = ExtResource("1_wods2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pi0ea"]
+albedo_texture = ExtResource("2_3hw4b")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7frx7"]
+
+[sub_resource type="Animation" id="Animation_eew4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.00840345, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8ikqq"]
+resource_name = "pressed"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.00840345, 0), Vector3(0, -0.03, 0), Vector3(0, -0.08, 0), Vector3(0, -0.15, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_72c02"]
+_data = {
+"RESET": SubResource("Animation_eew4g"),
+"pressed": SubResource("Animation_8ikqq")
+}
+
+[node name="world_button" type="Node3D"]
+script = ExtResource("3_0dwlv")
+
+[node name="box_button" type="CSGBox3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 0.250006, 0, 0, 0, 2, 0, -0.12732, 0)
+material_override = SubResource("StandardMaterial3D_cfc8w")
+collision_layer = 4
+
+[node name="button" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 0.185, 0, 0, 0, 1.5, 0, -0.00840345, 0)
+material_override = SubResource("StandardMaterial3D_pi0ea")
+collision_layer = 4
+
+[node name="Area3D" type="Area3D" parent="button"]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="button/Area3D"]
+shape = SubResource("CylinderShape3D_7frx7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="button"]
+libraries = {
+"": SubResource("AnimationLibrary_72c02")
+}
+
+[connection signal="body_entered" from="button/Area3D" to="." method="_on_player_entered"]
+[connection signal="body_exited" from="button/Area3D" to="." method="_on_player_exited"]

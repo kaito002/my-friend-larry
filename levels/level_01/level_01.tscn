@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dct1lstci1lt0"]
+
+[ext_resource type="Script" path="res://levels/level_01/level_01_manager.gd" id="1_jsd5s"]
+[ext_resource type="PackedScene" uid="uid://jkytk54paja8" path="res://player/player.tscn" id="1_vsdbf"]
+[ext_resource type="Texture2D" uid="uid://5wegjrqnvbrp" path="res://assets/terrains/Light/texture_08.png" id="2_oa77q"]
+[ext_resource type="PackedScene" uid="uid://bhbeevqymkb3t" path="res://button/world_button.tscn" id="4_wce6f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmlh0"]
+albedo_texture = ExtResource("2_oa77q")
+
+[node name="level_01" type="Node3D"]
+script = ExtResource("1_jsd5s")
+
+[node name="light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 9.5481, 0)
+shadow_enabled = true
+
+[node name="terrain" type="CSGBox3D" parent="."]
+transform = Transform3D(8.78145, 0, 0, 0, 0.134968, 0, 0, 0, 26.8001, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xmlh0")
+use_collision = true
+collision_layer = 2
+size = Vector3(4.41708, 1, 2.23731)
+
+[node name="player" parent="." instance=ExtResource("1_vsdbf")]
+transform = Transform3D(0.992841, 0, 0.119444, 0, 1, 0, -0.119444, 0, 0.992841, 0.351038, -0.0489645, 22.3334)
+
+[node name="world_button" parent="." instance=ExtResource("4_wce6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.212218, 15)

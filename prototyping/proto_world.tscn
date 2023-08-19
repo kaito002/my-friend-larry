@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://hbrxejmlba8v"]
+
+[ext_resource type="Script" path="res://prototyping/proto_world.gd" id="1_7xrwj"]
+[ext_resource type="PackedScene" uid="uid://jkytk54paja8" path="res://player/player.tscn" id="1_pa53g"]
+[ext_resource type="Texture2D" uid="uid://c33ty3d4488yj" path="res://assets/terrains/Dark/texture_01.png" id="1_yf5ij"]
+[ext_resource type="PackedScene" uid="uid://bhbeevqymkb3t" path="res://button/world_button.tscn" id="3_fgar7"]
+[ext_resource type="PackedScene" uid="uid://dwviw2wx2qi1t" path="res://door/door.tscn" id="4_mfci3"]
+[ext_resource type="PackedScene" uid="uid://c7occw257ygik" path="res://victory_zone/vicotry_zone.tscn" id="6_4el3h"]
+[ext_resource type="PackedScene" uid="uid://cxvmcu13xarp3" path="res://larry/capsule_larry.tscn" id="7_47hyp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkd88"]
+albedo_texture = ExtResource("1_yf5ij")
+
+[node name="proto_world" type="Node3D"]
+script = ExtResource("1_7xrwj")
+
+[node name="light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.93274, -0.328631, 0.148314, 0.253044, -0.303648, 0.918568, -0.256835, 0.894315, 0.366383, 0, 12.4073, -7.16668)
+shadow_enabled = true
+
+[node name="terrain" type="CSGBox3D" parent="."]
+transform = Transform3D(2.5216, 0, 0, 0, 1, 0, 0, 0, 2.58697, 0, 0.157354, 0)
+material_override = SubResource("StandardMaterial3D_vkd88")
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(9.14737, 0.232786, 14.4891)
+
+[node name="wall" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(9.03066, 0, 0, 0, 3.59079, 0, 0, 0, 0.223939, 0, 1.83228, 6.97723)
+
+[node name="wall2" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(9.03066, 0, 0, 0, 3.59079, 0, 0, 0, 0.223939, 0, 1.78874, -7.20549)
+
+[node name="wall3" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-6.21564e-07, 0, 0.223939, 0, 3.59078, 0, -14.2197, 0, -9.7887e-09, 4.46777, 1.78874, -0.0443005)
+
+[node name="wall4" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-6.22956e-07, 0, 0.223939, 0, 3.59078, 0, -14.2516, 0, -9.7887e-09, -4.42738, 1.78874, -0.100128)
+
+[node name="wall5" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-1.06089e-07, 0, 0.223939, 0, 3.59078, 0, -2.42703, 0, -9.7887e-09, -2.25014, 1.78874, -5.98903)
+
+[node name="wall6" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(0.874511, 0, 0, 0, 3.59077, 0, 0, 0, 0.223939, -3.90591, 1.78874, -4.8888)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-3.40028e-08, 6.30552e-08, -0.999999, 1.34777, 0.8564, 0, 2.23555, -0.516309, -4.37113e-08, 3.0415, 0.277866, 6.00759)
+
+[node name="player" parent="." instance=ExtResource("1_pa53g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082526, 0)
+
+[node name="world_button" parent="." instance=ExtResource("3_fgar7")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.53961, 2.5356, 17.6208)
+
+[node name="door" parent="." instance=ExtResource("4_mfci3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.37625, 2.00045, -12.6501)
+
+[node name="victory_zone" parent="." instance=ExtResource("6_4el3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.237, 0.348038, -16.2123)
+radius = 1.56861
+height = 0.002
+
+[node name="capsule_larry" parent="." instance=ExtResource("7_47hyp")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.14989, 6.02173)
