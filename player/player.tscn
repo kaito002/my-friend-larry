@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://jkytk54paja8"]
+[gd_scene load_steps=9 format=3 uid="uid://jkytk54paja8"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_mg1gk"]
 [ext_resource type="Texture2D" uid="uid://brkcweq1hagof" path="res://assets/player/pointer.png" id="2_72hhv"]
 [ext_resource type="Script" path="res://player/player_HUD.gd" id="2_rspbm"]
+[ext_resource type="Texture2D" uid="uid://bo7hg6kxn7qco" path="res://assets/terrains/Light/texture_05.png" id="4_nt2ml"]
+[ext_resource type="Texture2D" uid="uid://einywel4lxh4" path="res://assets/terrains/Orange/texture_09.png" id="5_68imw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3jkm6"]
 
@@ -23,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_rspbm")
+larry_bullets = 0
 
 [node name="pointer" type="TextureRect" parent="HUD"]
 layout_mode = 1
@@ -65,6 +68,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="launch_power_progress" type="TextureProgressBar" parent="HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.551562
+anchor_top = 0.410156
+anchor_right = 0.566667
+anchor_bottom = 0.576563
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 4.0
+step = 0.1
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("4_nt2ml")
+texture_progress = ExtResource("5_68imw")
 metadata/_edit_use_anchors_ = true
 
 [node name="body" type="MeshInstance3D" parent="."]

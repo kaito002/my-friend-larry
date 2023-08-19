@@ -3,8 +3,8 @@ class_name PlayerHUD
 
 @export var larry_bullets := 1
 
-
 @onready var bullets_container: HBoxContainer = $container/bullets_container
+@onready var launch_power_progress: TextureProgressBar = $launch_power_progress
 
 const bullet_ref = preload("res://player/larry_bullet.tscn")
 
@@ -18,6 +18,14 @@ func _draw_bullets():
 	for i in larry_bullets:
 		var bullet = bullet_ref.instantiate()
 		bullets_container.add_child(bullet)
+
+func add_launch_power(power: float):
+	if (!launch_power_progress.visible):
+		launch_power_progress.visible = true
+	launch_power_progress.value = power
+	
+func hide_launch_power():
+	launch_power_progress.visible = false
 
 func add_bullet(count: int)-> void:
 	larry_bullets += count

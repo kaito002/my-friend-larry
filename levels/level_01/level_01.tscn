@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dct1lstci1lt0"]
+[gd_scene load_steps=9 format=3 uid="uid://dct1lstci1lt0"]
 
 [ext_resource type="Script" path="res://levels/level_01/level_01_manager.gd" id="1_jsd5s"]
 [ext_resource type="PackedScene" uid="uid://jkytk54paja8" path="res://player/player.tscn" id="1_vsdbf"]
 [ext_resource type="Texture2D" uid="uid://5wegjrqnvbrp" path="res://assets/terrains/Light/texture_08.png" id="2_oa77q"]
 [ext_resource type="PackedScene" uid="uid://bhbeevqymkb3t" path="res://button/world_button.tscn" id="4_wce6f"]
+[ext_resource type="PackedScene" uid="uid://c7occw257ygik" path="res://victory_zone/vicotry_zone.tscn" id="6_ujesn"]
+[ext_resource type="PackedScene" uid="uid://dwviw2wx2qi1t" path="res://door/door.tscn" id="7_h3ru2"]
+[ext_resource type="PackedScene" uid="uid://dgosjgukbd142" path="res://larry/capsule_larry_spawn_point.tscn" id="7_oudd4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmlh0"]
 albedo_texture = ExtResource("2_oa77q")
@@ -12,18 +15,51 @@ albedo_texture = ExtResource("2_oa77q")
 script = ExtResource("1_jsd5s")
 
 [node name="light" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 9.5481, 0)
+transform = Transform3D(-0.865053, -0.43234, 0.25449, 0.343945, -0.141805, 0.928221, -0.365219, 0.890491, 0.27137, 0, 11.2749, -5.84183)
 shadow_enabled = true
 
 [node name="terrain" type="CSGBox3D" parent="."]
-transform = Transform3D(8.78145, 0, 0, 0, 0.134968, 0, 0, 0, 26.8001, 0, 0, 0)
+transform = Transform3D(8.78145, 0, 0, 0, 0.134968, 0, 0, 0, 16.3292, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_xmlh0")
 use_collision = true
 collision_layer = 2
-size = Vector3(4.41708, 1, 2.23731)
+size = Vector3(1.84477, 1, 2.23731)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.958589, 16.0407, 0)
+size = Vector3(0.112798, 33.7457, 2.22556)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.889257, 16.0407, 0.0089777)
+size = Vector3(0.112798, 33.7457, 2.22556)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-0.0063355, 0, -0.999979, 0, 1, 0, 0.99998, 0, -0.00633549, -0.0373274, 16.0407, -1.05427)
+size = Vector3(0.112798, 33.7457, 1.73224)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-0.0063355, 0, -0.999979, 0, 1, 0, 0.99998, 0, -0.00633548, 0.515683, 16.0407, -0.592447)
+size = Vector3(0.0278068, 33.7457, 0.755529)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-0.0063355, 0, -0.999979, 0, 1, 0, 0.99998, 0, -0.00633548, -0.571345, 16.0407, -0.596064)
+size = Vector3(0.0278068, 33.7457, 0.783823)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-0.0063355, 0, -0.999979, 0, 1, 0, 0.99998, 0, -0.00633549, -0.0373274, 16.0407, 1.06261)
+size = Vector3(0.112798, 33.7457, 1.73224)
 
 [node name="player" parent="." instance=ExtResource("1_vsdbf")]
-transform = Transform3D(0.992841, 0, 0.119444, 0, 1, 0, -0.119444, 0, 0.992841, 0.351038, -0.0489645, 22.3334)
+transform = Transform3D(0.992841, 0, 0.119444, 0, 1, 0, -0.119444, 0, 0.992841, 0.351038, -0.0489645, 14.2836)
 
-[node name="world_button" parent="." instance=ExtResource("4_wce6f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.212218, 15)
+[node name="world_button2" parent="." instance=ExtResource("4_wce6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.88156, 0.285073, 15.3264)
+
+[node name="victory_zone" parent="." instance=ExtResource("6_ujesn")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.192973, 0.0674819, -13.6498)
+
+[node name="door" parent="." instance=ExtResource("7_h3ru2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.246147, 1.78822, -9.6749)
+
+[node name="capsule_larry_spawn_point" parent="." instance=ExtResource("7_oudd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0697255, 0.0995103, 0.168927)
