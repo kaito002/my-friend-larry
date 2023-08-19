@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dct1lstci1lt0"]
+[gd_scene load_steps=10 format=3 uid="uid://dct1lstci1lt0"]
 
 [ext_resource type="Script" path="res://levels/level_01/level_01_manager.gd" id="1_jsd5s"]
 [ext_resource type="PackedScene" uid="uid://jkytk54paja8" path="res://player/player.tscn" id="1_vsdbf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c7occw257ygik" path="res://victory_zone/vicotry_zone.tscn" id="6_ujesn"]
 [ext_resource type="PackedScene" uid="uid://dwviw2wx2qi1t" path="res://door/door.tscn" id="7_h3ru2"]
 [ext_resource type="PackedScene" uid="uid://dgosjgukbd142" path="res://larry/capsule_larry_spawn_point.tscn" id="7_oudd4"]
+[ext_resource type="PackedScene" uid="uid://bhfbs0a8pr0ih" path="res://menus/pause_menu/pause_menu.tscn" id="8_c4jfq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmlh0"]
 albedo_texture = ExtResource("2_oa77q")
@@ -63,3 +64,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.246
 
 [node name="capsule_larry_spawn_point" parent="." instance=ExtResource("7_oudd4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0697255, 0.0995103, 0.168927)
+
+[node name="pause_menu" parent="." instance=ExtResource("8_c4jfq")]
+visible = false
+level_packed_scene = null
+
+[node name="level_name" parent="pause_menu/menu" index="1"]
+text = "Level 01"
+
+[editable path="pause_menu"]

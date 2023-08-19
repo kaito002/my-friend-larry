@@ -1,0 +1,152 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhfbs0a8pr0ih"]
+
+[ext_resource type="Texture2D" uid="uid://c7xla0xa2b4iu" path="res://assets/ui/orange_panel.png" id="1_fkaqn"]
+[ext_resource type="Script" path="res://menus/pause_menu/pause_menu.gd" id="1_ojndm"]
+[ext_resource type="Texture2D" uid="uid://dxgxirgctybbf" path="res://assets/ui/grey_panel.png" id="2_tvktf"]
+[ext_resource type="FontFile" uid="uid://dg7hlykfnchp8" path="res://assets/fonts/Caprasimo-Regular.ttf" id="3_rf4cy"]
+[ext_resource type="Texture2D" uid="uid://c6tw21rdsabxc" path="res://assets/ui/blue_square_btn.png" id="5_hofwj"]
+[ext_resource type="Texture2D" uid="uid://dfg1lhjhifqmb" path="res://assets/ui/blue_square_btn_pressed.png" id="6_dg0n0"]
+[ext_resource type="Texture2D" uid="uid://dd22bm2ojrwtf" path="res://assets/ui/grey_square_btn.png" id="7_1w1re"]
+[ext_resource type="Texture2D" uid="uid://bc22s7xatwv3p" path="res://assets/ui/icons/return.png" id="7_x20xn"]
+[ext_resource type="Texture2D" uid="uid://baopg1bxkuc80" path="res://assets/ui/grey_square_btn_pressed.png" id="8_7r6dk"]
+[ext_resource type="Texture2D" uid="uid://cwfjwryyyqdmo" path="res://assets/ui/icons/exit.png" id="9_lffm4"]
+
+[node name="pause_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ojndm")
+metadata/_edit_vertical_guides_ = [960.0]
+metadata/_edit_horizontal_guides_ = [640.0]
+
+[node name="overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.411765, 0.411765, 0.411765, 0.282353)
+
+[node name="menu" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.269792
+anchor_top = 0.15625
+anchor_right = 0.732291
+anchor_bottom = 0.849999
+offset_right = -147.999
+offset_bottom = -147.999
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_fkaqn")
+region_rect = Rect2(-0.328857, -2.26312, 100.066, 103.658)
+patch_margin_left = 14
+patch_margin_top = 18
+patch_margin_right = 13
+patch_margin_bottom = 16
+metadata/_edit_use_anchors_ = true
+
+[node name="menu_title_container" type="NinePatchRect" parent="menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.155405
+anchor_top = -0.0540541
+anchor_right = 0.844595
+anchor_bottom = 0.0810811
+grow_horizontal = 2
+texture = ExtResource("2_tvktf")
+region_rect = Rect2(-1.3161, -0.546379, 102.118, 101.605)
+patch_margin_left = 15
+patch_margin_top = 17
+patch_margin_right = 14
+patch_margin_bottom = 17
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="Label" parent="menu/menu_title_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.294118, 0.294118, 0.294118, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_rf4cy")
+theme_override_font_sizes/font_size = 45
+text = "PAUSE MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="level_name" type="Label" parent="menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -173.5
+offset_top = 167.5
+offset_right = 173.5
+offset_bottom = 228.5
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_rf4cy")
+theme_override_font_sizes/font_size = 50
+text = "LEVEL NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart_level_btn" type="TextureButton" parent="menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.168919
+anchor_top = 0.44009
+anchor_right = 0.431081
+anchor_bottom = 0.702252
+offset_top = -1.52588e-05
+texture_normal = ExtResource("5_hofwj")
+texture_pressed = ExtResource("6_dg0n0")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="restart" type="TextureRect" parent="menu/restart_level_btn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.159794
+anchor_top = 0.159794
+anchor_right = 0.840206
+anchor_bottom = 0.840206
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_x20xn")
+metadata/_edit_use_anchors_ = true
+
+[node name="back_to_main_menu_btn" type="TextureButton" parent="menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.563514
+anchor_top = 0.441892
+anchor_right = 0.824325
+anchor_bottom = 0.702703
+texture_normal = ExtResource("7_1w1re")
+texture_pressed = ExtResource("8_7r6dk")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="exit_icon" type="TextureRect" parent="menu/back_to_main_menu_btn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.168394
+anchor_top = 0.168394
+anchor_right = 0.831606
+anchor_bottom = 0.831606
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_lffm4")
+metadata/_edit_use_anchors_ = true

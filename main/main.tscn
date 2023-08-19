@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlrou0qt1l6b5"]
+
+[ext_resource type="Script" path="res://main/navigator.gd" id="1_tgm1y"]
+
+[node name="main" type="Node"]
+
+[node name="navigator" type="Node" parent="."]
+script = ExtResource("1_tgm1y")
+
+[node name="content" type="Node" parent="navigator"]

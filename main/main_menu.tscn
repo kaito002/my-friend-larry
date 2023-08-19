@@ -1,0 +1,212 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbte37kf271j7"]
+
+[ext_resource type="Texture2D" uid="uid://co2edykqoi0em" path="res://assets/terrains/Light/texture_13.png" id="1_hmrdo"]
+[ext_resource type="FontFile" uid="uid://dg7hlykfnchp8" path="res://assets/fonts/Caprasimo-Regular.ttf" id="2_guerh"]
+[ext_resource type="Texture2D" uid="uid://dd22bm2ojrwtf" path="res://assets/ui/grey_square_btn.png" id="3_4frr5"]
+[ext_resource type="Texture2D" uid="uid://c6tw21rdsabxc" path="res://assets/ui/blue_square_btn.png" id="3_jjh83"]
+[ext_resource type="Texture2D" uid="uid://baopg1bxkuc80" path="res://assets/ui/grey_square_btn_pressed.png" id="4_hi5xw"]
+[ext_resource type="Texture2D" uid="uid://dfg1lhjhifqmb" path="res://assets/ui/blue_square_btn_pressed.png" id="4_vjfyc"]
+[ext_resource type="Texture2D" uid="uid://c0iol1hjl0t08" path="res://assets/ui/orange_square_btn.png" id="5_hltlm"]
+[ext_resource type="Texture2D" uid="uid://dmgp0fqkf2arf" path="res://assets/ui/orange_square_btn_pressed.png" id="6_tf4gg"]
+[ext_resource type="Texture2D" uid="uid://4oc0pchibn6a" path="res://assets/ui/green_square_btn.png" id="7_vj03k"]
+[ext_resource type="Texture2D" uid="uid://ckgjhbbv8e2xj" path="res://assets/ui/green_square_btn_pressed.png" id="8_6hqwu"]
+
+[node name="main_menu" type="Node"]
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="TextureRect" parent="ui"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hmrdo")
+
+[node name="title" type="Label" parent="ui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.240885
+anchor_top = 0.1625
+anchor_right = 0.759115
+anchor_bottom = 0.273438
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.996094, 0.554688, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_guerh")
+theme_override_font_sizes/font_size = 120
+text = "My Friend Larry"
+metadata/_edit_use_anchors_ = true
+
+[node name="author" type="Label" parent="ui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.585417
+anchor_top = 0.801562
+anchor_right = 0.967708
+anchor_bottom = 0.942187
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.227451, 0.227451, 0.227451, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("2_guerh")
+theme_override_font_sizes/font_size = 40
+text = "by Carlos Montes
+Image Campus - Game Design
+TP - Herramientas de Programación"
+metadata/_edit_use_anchors_ = true
+
+[node name="tutorial_btn" type="TextureButton" parent="ui"]
+layout_mode = 2
+anchor_left = 0.0817708
+anchor_top = 0.395312
+anchor_right = 0.224479
+anchor_bottom = 0.603906
+texture_normal = ExtResource("3_4frr5")
+texture_pressed = ExtResource("4_hi5xw")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="label" type="Label" parent="ui/tutorial_btn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.145985
+anchor_top = 0.505474
+anchor_right = 1.14599
+anchor_bottom = 0.75
+offset_left = 78.5
+offset_top = 11.0
+offset_right = -78.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_guerh")
+theme_override_font_sizes/font_size = 35
+text = "TUTORIAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="level_01_btn" type="TextureButton" parent="ui"]
+layout_mode = 2
+anchor_left = 0.316667
+anchor_top = 0.395312
+anchor_right = 0.459375
+anchor_bottom = 0.603906
+texture_normal = ExtResource("5_hltlm")
+texture_pressed = ExtResource("6_tf4gg")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="label" type="Label" parent="ui/level_01_btn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.145985
+anchor_top = 0.505474
+anchor_right = 1.14599
+anchor_bottom = 0.75
+offset_left = 78.5
+offset_top = 11.0
+offset_right = -78.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_guerh")
+theme_override_font_sizes/font_size = 35
+text = "LEVEL 01"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="level_02_btn" type="TextureButton" parent="ui"]
+layout_mode = 2
+anchor_left = 0.541146
+anchor_top = 0.395312
+anchor_right = 0.683854
+anchor_bottom = 0.603906
+texture_normal = ExtResource("7_vj03k")
+texture_pressed = ExtResource("8_6hqwu")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="label" type="Label" parent="ui/level_02_btn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.145985
+anchor_top = 0.505474
+anchor_right = 1.14599
+anchor_bottom = 0.75
+offset_left = 78.5
+offset_top = 11.0
+offset_right = -78.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_guerh")
+theme_override_font_sizes/font_size = 35
+text = "LEVEL 02"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="level_03_btn" type="TextureButton" parent="ui"]
+layout_mode = 2
+anchor_left = 0.754167
+anchor_top = 0.395312
+anchor_right = 0.896875
+anchor_bottom = 0.603906
+texture_normal = ExtResource("3_jjh83")
+texture_pressed = ExtResource("4_vjfyc")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="label" type="Label" parent="ui/level_03_btn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.145985
+anchor_top = 0.505474
+anchor_right = 1.14599
+anchor_bottom = 0.75
+offset_left = 78.5
+offset_top = 11.0
+offset_right = -78.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_guerh")
+theme_override_font_sizes/font_size = 35
+text = "LEVEL 03"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

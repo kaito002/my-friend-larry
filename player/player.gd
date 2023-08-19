@@ -20,9 +20,6 @@ const larry_ref = preload("res://larry/larry.tscn")
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _pressed_time: float = 0.0
 
-func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 func _input( event: InputEvent) -> void:
 	if (event is InputEventMouseMotion):
 		head.rotate_x(deg_to_rad(event.relative.y * SENSITIVITY * -1))
