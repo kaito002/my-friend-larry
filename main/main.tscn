@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlrou0qt1l6b5"]
+[gd_scene load_steps=3 format=3 uid="uid://dlrou0qt1l6b5"]
 
 [ext_resource type="Script" path="res://main/navigator.gd" id="1_tgm1y"]
+[ext_resource type="PackedScene" uid="uid://bbte37kf271j7" path="res://main/main_menu.tscn" id="2_cvbka"]
 
 [node name="main" type="Node"]
 
@@ -8,3 +9,5 @@
 script = ExtResource("1_tgm1y")
 
 [node name="content" type="Node" parent="navigator"]
+
+[node name="main_menu" parent="navigator/content" instance=ExtResource("2_cvbka")]

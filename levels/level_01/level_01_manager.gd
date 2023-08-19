@@ -1,5 +1,6 @@
 extends Node3D
 
+@onready var navigator: Navigator = get_tree().root.get_node('/root/main/navigator')
 @onready var door_button: WorldButton = $world_button2
 @onready var door: Door = $door
 @onready var capsule_spawn: CapsuleLarrySpawnPoint = $capsule_larry_spawn_point
@@ -16,7 +17,12 @@ func _ready():
 	
 	pause_menu.connect('menu_showed', _on_menu_showed)
 	pause_menu.connect('menu_hided', _on_menu_hided)
+	pause_menu.connect('restart', _on_restart)
 	
+func _on_restart():
+	var level_01 = preload("res://levels/level_01/level_01.tscn").instantiate()
+	navigator.replace(level_01)
+
 func _on_menu_showed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
