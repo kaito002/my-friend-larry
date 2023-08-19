@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _direction: Vector3
 var _player: Player
 
-var _time_to_live = 10.0
+var _time_to_live = 15.0
 var _time_to_run = 0
 
 func initialize(direction: Vector3, player: Player, time_to_run: int):

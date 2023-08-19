@@ -1,23 +1,67 @@
-[gd_scene load_steps=10 format=3 uid="uid://dct1lstci1lt0"]
+[gd_scene load_steps=17 format=3 uid="uid://dct1lstci1lt0"]
 
 [ext_resource type="Script" path="res://levels/level_01/level_01_manager.gd" id="1_jsd5s"]
 [ext_resource type="PackedScene" uid="uid://jkytk54paja8" path="res://player/player.tscn" id="1_vsdbf"]
 [ext_resource type="Texture2D" uid="uid://5wegjrqnvbrp" path="res://assets/terrains/Light/texture_08.png" id="2_oa77q"]
 [ext_resource type="PackedScene" uid="uid://bhbeevqymkb3t" path="res://button/world_button.tscn" id="4_wce6f"]
+[ext_resource type="Texture2D" uid="uid://jixeukqbddwb" path="res://assets/terrains/Purple/texture_01.png" id="5_8y28c"]
 [ext_resource type="PackedScene" uid="uid://c7occw257ygik" path="res://victory_zone/vicotry_zone.tscn" id="6_ujesn"]
 [ext_resource type="PackedScene" uid="uid://dwviw2wx2qi1t" path="res://door/door.tscn" id="7_h3ru2"]
 [ext_resource type="PackedScene" uid="uid://dgosjgukbd142" path="res://larry/capsule_larry_spawn_point.tscn" id="7_oudd4"]
 [ext_resource type="PackedScene" uid="uid://bhfbs0a8pr0ih" path="res://menus/pause_menu/pause_menu.tscn" id="8_c4jfq"]
+[ext_resource type="Script" path="res://levels/level_01/elevator.gd" id="10_h1kxw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmlh0"]
 albedo_texture = ExtResource("2_oa77q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ern1e"]
+albedo_texture = ExtResource("5_8y28c")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2nrn"]
+albedo_texture = ExtResource("5_8y28c")
+
+[sub_resource type="Animation" id="Animation_6roxs"]
+resource_name = "elevate"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(4.2869, 0.341555, -2.50776), Vector3(4.2869, 7.78148, -2.50776)]
+}
+
+[sub_resource type="Animation" id="Animation_ekp6i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.2869, 0.341555, -2.50776)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2dlgd"]
+_data = {
+"RESET": SubResource("Animation_ekp6i"),
+"elevate": SubResource("Animation_6roxs")
+}
 
 [node name="level_01" type="Node3D"]
 script = ExtResource("1_jsd5s")
 
 [node name="light" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.865053, -0.43234, 0.25449, 0.343945, -0.141805, 0.928221, -0.365219, 0.890491, 0.27137, 0, 11.2749, -5.84183)
-shadow_enabled = true
+transform = Transform3D(-0.95185, -0.295655, -0.0810557, -0.0625756, -0.0714572, 0.995479, -0.30011, 0.952618, 0.0495157, 5.50888, 5.39763, -0.494168)
 
 [node name="terrain" type="CSGBox3D" parent="."]
 transform = Transform3D(8.78145, 0, 0, 0, 0.134968, 0, 0, 0, 16.3292, 0, 0, 0)
@@ -27,40 +71,50 @@ collision_layer = 2
 size = Vector3(1.84477, 1, 2.23731)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.958589, 16.0407, 0)
+transform = Transform3D(1, 0, 0, 0, 4.18574, 0, 0, 0, 0.999999, -0.958589, 69.8743, 0)
 size = Vector3(0.112798, 33.7457, 2.22556)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.889257, 16.0407, 0.0089777)
+transform = Transform3D(1, 0, 0, 0, 4.38092, 0, 0, 0, 0.999999, 0.889257, 67.1386, 0.0089777)
 size = Vector3(0.112798, 33.7457, 2.22556)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="terrain"]
-transform = Transform3D(-0.0063355, 0, -0.999979, 0, 1, 0, 0.99998, 0, -0.00633549, -0.0373274, 16.0407, -1.05427)
+transform = Transform3D(-0.0063355, 0, -0.999979, 0, 4.19181, 0, 0.99998, 0, -0.00633549, -0.0373274, 71.5212, -1.05427)
 size = Vector3(0.112798, 33.7457, 1.73224)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="terrain"]
-transform = Transform3D(-0.0063355, 0, -0.999979, 0, 1, 0, 0.99998, 0, -0.00633548, 0.515683, 16.0407, -0.592447)
+transform = Transform3D(-0.0063355, 0, -0.999979, 0, 1, 0, 0.99998, 0, -0.00633548, 0.515683, 74.4874, -0.592447)
+size = Vector3(0.0278068, 33.7457, 0.755529)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-0.163841, 0, -2.65334, 0, 0.100384, 0, 25.8602, 0, -0.0168106, -0.00710261, 57.207, -0.692294)
 size = Vector3(0.0278068, 33.7457, 0.755529)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="terrain"]
-transform = Transform3D(-0.0063355, 0, -0.999979, 0, 1, 0, 0.99998, 0, -0.00633548, -0.571345, 16.0407, -0.596064)
+transform = Transform3D(-0.0063355, 0, -0.999979, 0, 1, 0, 0.99998, 0, -0.00633548, -0.571345, 74.4874, -0.596064)
 size = Vector3(0.0278068, 33.7457, 0.783823)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="terrain"]
-transform = Transform3D(-0.0063355, 0, -0.999979, 0, 1, 0, 0.99998, 0, -0.00633549, -0.0373274, 16.0407, 1.06261)
+transform = Transform3D(-0.0063355, 0, -0.999979, 0, 4.1601, 0, 0.99998, 0, -0.00633549, -0.0373274, 70.0285, 1.06261)
 size = Vector3(0.112798, 33.7457, 1.73224)
 
 [node name="player" parent="." instance=ExtResource("1_vsdbf")]
 transform = Transform3D(0.992841, 0, 0.119444, 0, 1, 0, -0.119444, 0, 0.992841, 0.351038, -0.0489645, 14.2836)
 
-[node name="world_button2" parent="." instance=ExtResource("4_wce6f")]
+[node name="door_button" parent="." instance=ExtResource("4_wce6f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.88156, 0.285073, 15.3264)
 
+[node name="elevator_button" parent="." instance=ExtResource("4_wce6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.13123, 0.285073, 15.3264)
+
+[node name="button" parent="elevator_button" index="1"]
+material_override = SubResource("StandardMaterial3D_ern1e")
+
 [node name="victory_zone" parent="." instance=ExtResource("6_ujesn")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.192973, 0.0674819, -13.6498)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.192973, 7.98037, -13.6498)
 
 [node name="door" parent="." instance=ExtResource("7_h3ru2")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.246147, 1.78822, -9.6749)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.246147, 9.67665, -9.6749)
 
 [node name="capsule_larry_spawn_point" parent="." instance=ExtResource("7_oudd4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0697255, 0.0995103, 0.168927)
@@ -71,4 +125,17 @@ visible = false
 [node name="level_name" parent="pause_menu/menu" index="1"]
 text = "Level 01"
 
+[node name="elevator" type="CSGBox3D" parent="."]
+transform = Transform3D(5.52826, 0, 0, 0, 0.403532, 0, 0, 0, 5.61231, 4.2869, 0.341555, -2.50776)
+material_override = SubResource("StandardMaterial3D_o2nrn")
+use_collision = true
+collision_layer = 2
+script = ExtResource("10_h1kxw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="elevator"]
+libraries = {
+"": SubResource("AnimationLibrary_2dlgd")
+}
+
+[editable path="elevator_button"]
 [editable path="pause_menu"]
