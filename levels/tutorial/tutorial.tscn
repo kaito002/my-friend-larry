@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://c2jkgltimjugg"]
+
+[ext_resource type="Texture2D" uid="uid://ihhaa7fuxv4k" path="res://assets/terrains/Dark/texture_02.png" id="1_rksga"]
+[ext_resource type="Script" path="res://levels/tutorial/tutorial.gd" id="1_yh2jo"]
+[ext_resource type="PackedScene" uid="uid://jkytk54paja8" path="res://player/player.tscn" id="2_mbobj"]
+[ext_resource type="Texture2D" uid="uid://cpo07x4op2pik" path="res://assets/tutorial/dash-explain.png" id="3_4oecn"]
+[ext_resource type="Texture2D" uid="uid://bqwsugw7ih3bk" path="res://assets/tutorial/distance-explain.png" id="3_ldf4v"]
+[ext_resource type="Texture2D" uid="uid://bysbgeracqwyy" path="res://assets/tutorial/larry-on-button.png" id="3_llgaw"]
+[ext_resource type="PackedScene" uid="uid://dgosjgukbd142" path="res://larry/capsule_larry_spawn_point.tscn" id="4_7tqbx"]
+[ext_resource type="Texture2D" uid="uid://dnywoto6q7wof" path="res://assets/tutorial/victory-explain.png" id="5_mdmrq"]
+[ext_resource type="PackedScene" uid="uid://dwviw2wx2qi1t" path="res://door/door.tscn" id="5_qbi14"]
+[ext_resource type="PackedScene" uid="uid://bhfbs0a8pr0ih" path="res://menus/pause_menu/pause_menu.tscn" id="6_6rpc2"]
+[ext_resource type="PackedScene" uid="uid://bhbeevqymkb3t" path="res://button/world_button.tscn" id="7_pdcs1"]
+[ext_resource type="PackedScene" uid="uid://c7occw257ygik" path="res://victory_zone/vicotry_zone.tscn" id="8_miyld"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n43lq"]
+albedo_texture = ExtResource("1_rksga")
+
+[node name="tutorial" type="Node3D"]
+script = ExtResource("1_yh2jo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.843483, -0.535079, 0.0471928, 0.0446599, 0.0176955, 0.998846, -0.535297, 0.844617, 0.00897068, 0, 6.71453, 0)
+light_energy = 2.276
+light_volumetric_fog_energy = 5.025
+shadow_enabled = true
+
+[node name="terrain" type="CSGBox3D" parent="."]
+transform = Transform3D(25.8152, 0, 0, 0, 0.2325, 0, 0, 0, 9.91022, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_n43lq")
+use_collision = true
+collision_layer = 2
+
+[node name="wall" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(0.999923, 0, 0, 0, 18.0578, 0, 0, 0, 0.0629444, 0, 9.30501, 0.47068)
+
+[node name="Sprite3D" type="Sprite3D" parent="terrain/wall"]
+transform = Transform3D(0.0160976, 0, 0, 0, 0.100595, 0, 0, 0, 1, 0.257253, 0.015592, -0.578074)
+flip_h = true
+texture = ExtResource("3_4oecn")
+
+[node name="wall2" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(0.999923, 0, 0, 0, 18.0578, 0, 0, 0, 0.0629444, 0, 9.30501, -0.465498)
+
+[node name="Sprite3D" type="Sprite3D" parent="terrain/wall2"]
+transform = Transform3D(0.0262712, 0, 0, 0, 0.140821, 0, 0, 0, 1, 0.248846, 0, 0.865419)
+texture = ExtResource("3_ldf4v")
+
+[node name="wall3" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-4.3708e-08, 0, -0.0629444, 0, 18.0578, 0, 0.999923, 0, -2.75139e-09, -0.46591, 9.30501, 0.0195745)
+
+[node name="Sprite3D" type="Sprite3D" parent="terrain/wall3"]
+transform = Transform3D(0.072479, 0, 2.22045e-16, 0, 0.147935, 0, 3.55271e-14, 0, 1, -1.86265e-09, 0, -0.530934)
+flip_h = true
+texture = ExtResource("5_mdmrq")
+
+[node name="wall5" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-2.57946e-08, 0, -0.0629444, 0, 18.0578, 0, 0.590112, 0, -2.75139e-09, -0.177513, 9.30501, -0.15457)
+
+[node name="Sprite3D" type="Sprite3D" parent="terrain/wall5"]
+transform = Transform3D(0.0912121, 0, -1.24345e-14, 0, 0.127347, 0, 2.84217e-14, 0, 1, 0, 0.0770245, -0.519558)
+texture = ExtResource("3_llgaw")
+
+[node name="wall4" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(-4.3708e-08, 0, -0.0629444, 0, 18.0578, 0, 0.999924, 0, -2.75139e-09, 0.49902, 9.30501, 0.0195745)
+
+[node name="player" parent="." instance=ExtResource("2_mbobj")]
+transform = Transform3D(0.0773977, 0, 0.997, 0, 1, 0, -0.997, 0, 0.0773977, 11.1729, 0.116252, 0.841059)
+
+[node name="capsule_larry_spawn_point" parent="." instance=ExtResource("4_7tqbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3842, 0.15384, -3.22718)
+
+[node name="door" parent="." instance=ExtResource("5_qbi14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05636, 1.84696, 2.87519)
+
+[node name="pause_menu" parent="." instance=ExtResource("6_6rpc2")]
+visible = false
+
+[node name="level_name" parent="pause_menu/menu" index="1"]
+text = "Tutorial"
+
+[node name="door_button" parent="." instance=ExtResource("7_pdcs1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74033, 0.244325, -3.26086)
+
+[node name="victory_zone" parent="." instance=ExtResource("8_miyld")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -8.34767, 0.181579, -0.326218)
+
+[editable path="pause_menu"]

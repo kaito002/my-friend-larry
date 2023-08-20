@@ -20,6 +20,21 @@ albedo_texture = ExtResource("5_8y28c")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2nrn"]
 albedo_texture = ExtResource("5_8y28c")
 
+[sub_resource type="Animation" id="Animation_ekp6i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.2869, 0.341555, -2.50776)]
+}
+
 [sub_resource type="Animation" id="Animation_6roxs"]
 resource_name = "elevate"
 length = 2.0
@@ -34,21 +49,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(4.2869, 0.341555, -2.50776), Vector3(4.2869, 7.78148, -2.50776)]
-}
-
-[sub_resource type="Animation" id="Animation_ekp6i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(4.2869, 0.341555, -2.50776)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2dlgd"]

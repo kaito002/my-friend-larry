@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bbte37kf271j7"]
 
-[ext_resource type="Script" path="res://main/main_menu.gd" id="1_3sl1o"]
+[ext_resource type="Script" path="res://main/main_menu.gd" id="1_d6hyq"]
 [ext_resource type="Texture2D" uid="uid://co2edykqoi0em" path="res://assets/terrains/Light/texture_13.png" id="1_hmrdo"]
 [ext_resource type="FontFile" uid="uid://dg7hlykfnchp8" path="res://assets/fonts/Caprasimo-Regular.ttf" id="2_guerh"]
 [ext_resource type="Texture2D" uid="uid://dd22bm2ojrwtf" path="res://assets/ui/grey_square_btn.png" id="3_4frr5"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ckgjhbbv8e2xj" path="res://assets/ui/green_square_btn_pressed.png" id="8_6hqwu"]
 
 [node name="main_menu" type="Node"]
-script = ExtResource("1_3sl1o")
+script = ExtResource("1_d6hyq")
 
 [node name="ui" type="Control" parent="."]
 layout_mode = 3
