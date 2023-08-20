@@ -26,7 +26,7 @@ func _ready():
 	pause_menu.connect('restart', _on_restart)
 	
 func _on_restart():
-	var level_01 = preload("res://levels/level_01/level_01.tscn").instantiate()
+	var level_01 = load("res://levels/level_01/level_01.tscn").instantiate()
 	navigator.replace(level_01)
 
 func _on_menu_showed():

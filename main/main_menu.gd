@@ -10,9 +10,9 @@ func _ready():
 	tutorial_btn.connect('pressed', _go_to_tutorial)
 	
 func _go_to_tutorial():
-	var tutorial = preload("res://levels/tutorial/tutorial.tscn").instantiate()
+	var tutorial = load("res://levels/tutorial/tutorial.tscn").instantiate()
 	navigator.replace(tutorial)
 
 func _go_to_level_01():
-	var level_01 = preload("res://levels/level_01/level_01.tscn").instantiate()
+	var level_01 = load("res://levels/level_01/level_01.tscn").instantiate()
 	navigator.replace(level_01)

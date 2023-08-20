@@ -25,6 +25,6 @@ func _on_menu_hided():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _on_restart():
-	var tutorial = preload("res://levels/tutorial/tutorial.tscn").instantiate()
+	var tutorial = load("res://levels/tutorial/tutorial.tscn").instantiate()
 	navigator.replace(tutorial)
 
