@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Larry
 
 @onready var countdown_text: Label3D = $head/countdown
 @onready var head: Node3D = $head

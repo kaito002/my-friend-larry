@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://n7s2e3u3sog2"]
+
+[ext_resource type="PackedScene" uid="uid://jkytk54paja8" path="res://player/player.tscn" id="1_jbdo5"]
+
+[node name="level_03" type="Node3D"]
+
+[node name="terrain" type="CSGBox3D" parent="."]
+transform = Transform3D(43.4435, 0, 0, 0, 0.112792, 0, 0, 0, 38.9663, 0, 0, 0)
+use_collision = true
+collision_layer = 2
+
+[node name="player" parent="." instance=ExtResource("1_jbdo5")]
+transform = Transform3D(0.612866, 0, 0.790187, 0, 1, 0, -0.790187, 0, 0.612866, 17.6694, 0, 14.5861)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hbrxejmlba8v"]
+[gd_scene load_steps=10 format=3 uid="uid://hbrxejmlba8v"]
 
 [ext_resource type="Script" path="res://prototyping/proto_world.gd" id="1_7xrwj"]
 [ext_resource type="PackedScene" uid="uid://jkytk54paja8" path="res://player/player.tscn" id="1_pa53g"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dwviw2wx2qi1t" path="res://door/door.tscn" id="4_mfci3"]
 [ext_resource type="PackedScene" uid="uid://c7occw257ygik" path="res://victory_zone/vicotry_zone.tscn" id="6_4el3h"]
 [ext_resource type="PackedScene" uid="uid://cxvmcu13xarp3" path="res://larry/capsule_larry.tscn" id="7_47hyp"]
+[ext_resource type="PackedScene" uid="uid://cloonwap75jrl" path="res://barry/barry.tscn" id="8_f6tvy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkd88"]
 albedo_texture = ExtResource("1_yf5ij")
@@ -63,3 +64,6 @@ height = 0.002
 
 [node name="capsule_larry" parent="." instance=ExtResource("7_47hyp")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.14989, 6.02173)
+
+[node name="barry" parent="." instance=ExtResource("8_f6tvy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.79419, 1.19481, 14.1713)
