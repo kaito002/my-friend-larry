@@ -96,4 +96,5 @@ stream = ExtResource("14_6rdqo")
 volume_db = -10.0
 autoplay = true
 
+[editable path="player"]
 [editable path="pause_menu"]

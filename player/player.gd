@@ -19,10 +19,7 @@ const larry_ref = preload("res://larry/larry.tscn")
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _pressed_time: float = 0.0
-var _is_ready = false
 
-func _ready():
-	get_tree().create_timer(5).connect('timeout', func(): _is_ready = true)
 
 func _input( event: InputEvent) -> void:
 	if (event is InputEventMouseMotion):
@@ -35,7 +32,7 @@ func _process(delta):
 	_charging_launch(delta)
 	
 func _charging_launch(delta):
-	if (hud.get_bullets_count() <= 0 && !_is_ready): return
+	if (hud.get_bullets_count() <= 0): return
 	if (Input.is_action_pressed('launch_larry')):
 		if (_pressed_time < MAX_LARRY_CHARGE_LAUNCH):
 			_pressed_time += delta

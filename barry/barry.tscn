@@ -15,6 +15,33 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_buexn"]
 
+[sub_resource type="Animation" id="Animation_7ffen"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.588352, 0.0354654, -0.0627484)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0725066, -1.21334, 1.47844)]
+}
+
 [sub_resource type="Animation" id="Animation_g0qo6"]
 resource_name = "idle"
 length = 1.5
@@ -44,33 +71,6 @@ tracks/1/keys = {
 "values": [Vector3(-0.0725066, -1.21334, 1.47844), Vector3(-0.0733038, -1.213, 0.856957)]
 }
 
-[sub_resource type="Animation" id="Animation_7ffen"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.588352, 0.0354654, -0.0627484)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.0725066, -1.21334, 1.47844)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ueqtv"]
 _data = {
 "RESET": SubResource("Animation_7ffen"),
@@ -78,7 +78,6 @@ _data = {
 }
 
 [node name="barry" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 128
 collision_mask = 2
 script = ExtResource("1_32y16")
@@ -105,7 +104,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("SphereShape3D_buexn")
 
 [node name="knife" type="CSGPolygon3D" parent="."]
-transform = Transform3D(0.00685844, -0.180598, -0.024206, 0.0682194, 0.0485536, 0.00187681, 0.00420102, -0.493613, 0.00904088, 0.588352, 0.0354654, -0.0627484)
+transform = Transform3D(0.00685844, -0.1806, -0.024206, 0.0682194, 0.0485532, 0.00187681, 0.00420094, -0.493612, 0.00904097, 0.588352, 0.0354654, -0.0627484)
 polygon = PackedVector2Array(0, 0, 1.25464, 0.898328, 4.33794, 1.6334, 1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="knife"]
