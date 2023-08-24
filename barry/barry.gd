@@ -12,6 +12,7 @@ var should_run: bool = true
 signal kill_player()
 
 func _physics_process(delta):
+	if (Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE): return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
@@ -32,6 +33,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_player_entered(body):
+	if (target != null): return
 	if (body is Player || body is Larry):
 		should_run = true
 		target = body
@@ -44,5 +46,5 @@ func _on_killing_zone_body_entered(body):
 		emit_signal('kill_player')
 
 
-func _on_killing_zone_body_exited(body):
+func _on_killing_zone_body_exited(_body):
 	should_run = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://n7s2e3u3sog2"]
+[gd_scene load_steps=18 format=3 uid="uid://n7s2e3u3sog2"]
 
 [ext_resource type="PackedScene" uid="uid://jkytk54paja8" path="res://player/player.tscn" id="1_jbdo5"]
 [ext_resource type="Script" path="res://levels/level_03/level_03_manager.gd" id="1_w3m67"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://bhbeevqymkb3t" path="res://button/world_button.tscn" id="7_yltc4"]
 [ext_resource type="PackedScene" uid="uid://dgosjgukbd142" path="res://larry/capsule_larry_spawn_point.tscn" id="8_76rx2"]
 [ext_resource type="PackedScene" uid="uid://bhfbs0a8pr0ih" path="res://menus/pause_menu/pause_menu.tscn" id="10_edu00"]
+[ext_resource type="PackedScene" uid="uid://cyyebhsj6kcvq" path="res://menus/killed_menu/killed_menu.tscn" id="11_mcvvh"]
+[ext_resource type="PackedScene" uid="uid://cxvmcu13xarp3" path="res://larry/capsule_larry.tscn" id="12_hrvie"]
+[ext_resource type="PackedScene" uid="uid://ddk3fhp0xs5mg" path="res://menus/victory_menu/victory_menu.tscn" id="13_ta8vj"]
+[ext_resource type="AudioStream" uid="uid://7nksu34y62lt" path="res://assets/music/level3.wav" id="14_6esf8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf4xu"]
 albedo_texture = ExtResource("2_tmkij")
@@ -25,6 +29,7 @@ script = ExtResource("1_w3m67")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.184339, 0.18827, 0.964662, -0.464782, 0.881505, -0.0832244, 0, 18.7378, 0)
+light_energy = 1.5
 shadow_enabled = true
 
 [node name="map" type="Node3D" parent="."]
@@ -88,7 +93,7 @@ use_collision = true
 collision_layer = 2
 
 [node name="victory_zone" parent="map" instance=ExtResource("3_rmhr4")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 5.16008, -0.561879, 5.83193)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 6.86859, -0.561879, 5.18304)
 
 [node name="door" parent="map" instance=ExtResource("5_w1hve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028616, 1.04702, -14.5531)
@@ -100,10 +105,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028616, 0.970406, 6.57337)
 material_override = SubResource("StandardMaterial3D_vwq04")
 
 [node name="world_button" parent="map" instance=ExtResource("7_yltc4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.22298, -0.528302, 17.7006)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.88401, -0.528302, 17.8946)
 
 [node name="world_button2" parent="map" instance=ExtResource("7_yltc4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.28261, -0.528302, 12.267)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.96235, -0.528302, 12.1116)
 
 [node name="button" parent="map/world_button2" index="1"]
 material_override = SubResource("StandardMaterial3D_mdl7o")
@@ -115,10 +120,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91091, -0.56189, -4.29394)
 transform = Transform3D(0.612866, 0, 0.790187, 0, 1, 0, -0.790187, 0, 0.612866, 17.6694, -0.655921, 14.5861)
 
 [node name="barry" parent="." instance=ExtResource("6_fgfmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5342, 0.538567, -13.7401)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4308, 0.538567, -12.0609)
+
+[node name="capsule_larry" parent="." instance=ExtResource("12_hrvie")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 17.2682, 1.07388, 5.82019)
 
 [node name="pause_menu" parent="." instance=ExtResource("10_edu00")]
 visible = false
+level_path = "res://levels/level_03/level_03.tscn"
+
+[node name="killed_menu" parent="." instance=ExtResource("11_mcvvh")]
+visible = false
+level_path = "res://levels/level_03/level_03.tscn"
+
+[node name="victory_menu" parent="." instance=ExtResource("13_ta8vj")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_6esf8")
+volume_db = -10.0
+autoplay = true
 
 [editable path="map/door2"]
 [editable path="map/world_button2"]

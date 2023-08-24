@@ -1,7 +1,7 @@
 extends Control
 class_name PauseMenu
 
-@export var level_path: NodePath
+@export var level_path: String
 
 @onready var navigator: Navigator = get_tree().root.get_node('/root/main/navigator')
 @onready var restart_level_btn: TextureButton = $menu/restart_level_btn

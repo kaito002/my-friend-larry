@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dct1lstci1lt0"]
+[gd_scene load_steps=19 format=3 uid="uid://dct1lstci1lt0"]
 
 [ext_resource type="Script" path="res://levels/level_01/level_01_manager.gd" id="1_jsd5s"]
 [ext_resource type="PackedScene" uid="uid://jkytk54paja8" path="res://player/player.tscn" id="1_vsdbf"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dgosjgukbd142" path="res://larry/capsule_larry_spawn_point.tscn" id="7_oudd4"]
 [ext_resource type="PackedScene" uid="uid://bhfbs0a8pr0ih" path="res://menus/pause_menu/pause_menu.tscn" id="8_c4jfq"]
 [ext_resource type="Script" path="res://levels/level_01/elevator.gd" id="10_h1kxw"]
+[ext_resource type="PackedScene" uid="uid://ddk3fhp0xs5mg" path="res://menus/victory_menu/victory_menu.tscn" id="11_w5xxu"]
+[ext_resource type="AudioStream" uid="uid://fch14xfvfesr" path="res://assets/music/level1.wav" id="12_0ikwc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmlh0"]
 albedo_texture = ExtResource("2_oa77q")
@@ -121,9 +123,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0697255, 0.0995103, 0.1689
 
 [node name="pause_menu" parent="." instance=ExtResource("8_c4jfq")]
 visible = false
+level_path = "res://levels/level_01/level_01.tscn"
 
 [node name="level_name" parent="pause_menu/menu" index="1"]
 text = "Level 01"
+
+[node name="victory_menu" parent="." instance=ExtResource("11_w5xxu")]
+visible = false
 
 [node name="elevator" type="CSGBox3D" parent="."]
 transform = Transform3D(5.52826, 0, 0, 0, 0.403532, 0, 0, 0, 5.61231, 4.2869, 0.341555, -2.50776)
@@ -136,6 +142,11 @@ script = ExtResource("10_h1kxw")
 libraries = {
 "": SubResource("AnimationLibrary_2dlgd")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_0ikwc")
+volume_db = -10.0
+autoplay = true
 
 [editable path="elevator_button"]
 [editable path="pause_menu"]

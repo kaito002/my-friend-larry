@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bls782qtfuo7f"]
+[gd_scene load_steps=20 format=3 uid="uid://bls782qtfuo7f"]
 
 [ext_resource type="Texture2D" uid="uid://eco5kpy4bhey" path="res://assets/terrains/Dark/texture_04.png" id="1_fycht"]
 [ext_resource type="Script" path="res://levels/level_02/level_02_manager.gd" id="1_n31lk"]
@@ -11,12 +11,29 @@
 [ext_resource type="Texture2D" uid="uid://cksywmte1hkxq" path="res://assets/terrains/Purple/texture_10.png" id="6_ky6wg"]
 [ext_resource type="PackedScene" uid="uid://c7occw257ygik" path="res://victory_zone/vicotry_zone.tscn" id="7_cu7sa"]
 [ext_resource type="PackedScene" uid="uid://bhfbs0a8pr0ih" path="res://menus/pause_menu/pause_menu.tscn" id="11_hv1a6"]
+[ext_resource type="PackedScene" uid="uid://ddk3fhp0xs5mg" path="res://menus/victory_menu/victory_menu.tscn" id="12_8gquw"]
+[ext_resource type="AudioStream" uid="uid://cp8adc3w7y14s" path="res://assets/music/level2.wav" id="13_53886"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o786x"]
 albedo_texture = ExtResource("1_fycht")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpvhs"]
 albedo_texture = ExtResource("4_vlsmf")
+
+[sub_resource type="Animation" id="Animation_5gnce"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-10.6897, 2.32592, 5.89405)]
+}
 
 [sub_resource type="Animation" id="Animation_3w3q4"]
 resource_name = "open"
@@ -32,21 +49,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-10.6897, 2.32592, 5.89405), Vector3(-10.6897, 2.32592, 14.3818)]
-}
-
-[sub_resource type="Animation" id="Animation_5gnce"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-10.6897, 2.32592, 5.89405)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vg1b4"]
@@ -123,9 +125,18 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -27.1339, 0.0837288, -4.51564
 
 [node name="pause_menu" parent="." instance=ExtResource("11_hv1a6")]
 visible = false
+level_path = "res://levels/level_02/level_02.tscn"
 
 [node name="level_name" parent="pause_menu/menu" index="1"]
 text = "Level 02"
+
+[node name="victory_menu" parent="." instance=ExtResource("12_8gquw")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_53886")
+volume_db = -10.0
+autoplay = true
 
 [editable path="purple_button"]
 [editable path="pause_menu"]

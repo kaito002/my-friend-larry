@@ -8,7 +8,9 @@ extends Node3D
 @onready var player: Player = $player
 @onready var pause_menu: PauseMenu = $pause_menu
 @onready var elevator = $elevator
-	
+@onready var victory_zone: VictoryZone = $victory_zone
+@onready var victory_menu: VictoryMenu = $victory_menu
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -21,9 +23,7 @@ func _ready():
 	capsule_spawn.spawn()
 	player.connect("larry_fired", capsule_spawn.spawn)
 	
-	pause_menu.connect('menu_showed', _on_menu_showed)
-	pause_menu.connect('menu_hided', _on_menu_hided)
-	pause_menu.connect('restart', _on_restart)
+	victory_zone.connect('victory', victory_menu.show_menu)
 	
 func _on_restart():
 	var level_01 = load("res://levels/level_01/level_01.tscn").instantiate()

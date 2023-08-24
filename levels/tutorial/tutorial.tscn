@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2jkgltimjugg"]
+[gd_scene load_steps=16 format=3 uid="uid://c2jkgltimjugg"]
 
 [ext_resource type="Texture2D" uid="uid://ihhaa7fuxv4k" path="res://assets/terrains/Dark/texture_02.png" id="1_rksga"]
 [ext_resource type="Script" path="res://levels/tutorial/tutorial.gd" id="1_yh2jo"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bhbeevqymkb3t" path="res://button/world_button.tscn" id="7_pdcs1"]
 [ext_resource type="PackedScene" uid="uid://c7occw257ygik" path="res://victory_zone/vicotry_zone.tscn" id="8_miyld"]
 [ext_resource type="PackedScene" uid="uid://ddk3fhp0xs5mg" path="res://menus/victory_menu/victory_menu.tscn" id="13_i4kml"]
+[ext_resource type="AudioStream" uid="uid://ddx7hbnxw14o5" path="res://assets/music/tutorial.wav" id="14_6rdqo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n43lq"]
 albedo_texture = ExtResource("1_rksga")
@@ -76,6 +77,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05636, 1.84696, 2.87519)
 
 [node name="pause_menu" parent="." instance=ExtResource("6_6rpc2")]
 visible = false
+level_path = "res://levels/tutorial/tutorial.tscn"
 
 [node name="level_name" parent="pause_menu/menu" index="1"]
 text = "Tutorial"
@@ -88,5 +90,10 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -8.34767, 0.181579, -0.326218
 
 [node name="victory_menu" parent="." instance=ExtResource("13_i4kml")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_6rdqo")
+volume_db = -10.0
+autoplay = true
 
 [editable path="pause_menu"]

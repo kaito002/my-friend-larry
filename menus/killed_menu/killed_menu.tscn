@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyyebhsj6kcvq"]
+
+[ext_resource type="Script" path="res://menus/killed_menu/killed_menu.gd" id="1_f2tfj"]
+[ext_resource type="Texture2D" uid="uid://dxgxirgctybbf" path="res://assets/ui/grey_panel.png" id="1_xh7c3"]
+[ext_resource type="FontFile" uid="uid://dg7hlykfnchp8" path="res://assets/fonts/Caprasimo-Regular.ttf" id="2_yd7a8"]
+[ext_resource type="Texture2D" uid="uid://4oc0pchibn6a" path="res://assets/ui/green_square_btn.png" id="3_ct4o7"]
+[ext_resource type="Texture2D" uid="uid://bc22s7xatwv3p" path="res://assets/ui/icons/return.png" id="4_sx1ew"]
+
+[node name="killed_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f2tfj")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.286275)
+
+[node name="GreyPanel" type="NinePatchRect" parent="."]
+self_modulate = Color(0.580392, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313021
+anchor_top = 0.192969
+anchor_right = 0.698438
+anchor_bottom = 0.771094
+texture = ExtResource("1_xh7c3")
+patch_margin_left = 27
+patch_margin_top = 23
+patch_margin_right = 24
+patch_margin_bottom = 23
+metadata/_edit_use_anchors_ = true
+
+[node name="title_container" type="NinePatchRect" parent="GreyPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = -0.0945946
+anchor_right = 0.867568
+anchor_bottom = 0.127027
+grow_horizontal = 2
+texture = ExtResource("1_xh7c3")
+patch_margin_left = 19
+patch_margin_top = 21
+patch_margin_right = 17
+patch_margin_bottom = 21
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="GreyPanel/title_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yd7a8")
+theme_override_font_sizes/font_size = 55
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="GreyPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0317568
+anchor_top = 0.225
+anchor_right = 0.968243
+anchor_bottom = 0.562838
+offset_top = 21.5
+offset_bottom = -21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_yd7a8")
+theme_override_font_sizes/font_size = 40
+text = "Well, well, well... 
+Barry Catched you
+Be smarter
+Be Faster
+And Try AGAIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TryAgainBtn" type="TextureButton" parent="GreyPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.347297
+anchor_top = 0.641892
+anchor_right = 0.651351
+anchor_bottom = 0.922973
+offset_top = -3.05176e-05
+offset_right = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_ct4o7")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Return" type="TextureRect" parent="GreyPanel/TryAgainBtn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.202222
+anchor_top = 0.177885
+anchor_right = 0.797778
+anchor_bottom = 0.822115
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_sx1ew")
+metadata/_edit_use_anchors_ = true
