@@ -22,9 +22,10 @@ var _pressed_time: float = 0.0
 
 func _input( event: InputEvent) -> void:
 	if (event is InputEventMouseMotion):
-		head.rotate_x(deg_to_rad(event.relative.y * SENSITIVITY * -1))
-		head.rotation_degrees.x = clamp(head.rotation_degrees.x, -65, 70)
-		rotate_y(deg_to_rad(event.relative.x * SENSITIVITY * -1))
+		if (Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED):
+			head.rotate_x(deg_to_rad(event.relative.y * SENSITIVITY * -1))
+			head.rotation_degrees.x = clamp(head.rotation_degrees.x, -65, 70)
+			rotate_y(deg_to_rad(event.relative.x * SENSITIVITY * -1))
 
 func _process(delta):
 	_charging_launch(delta)
@@ -40,6 +41,8 @@ func _charging_launch(delta):
 		_fire_larry()
 
 func _physics_process(delta):
+	if (Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED): return
+	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 

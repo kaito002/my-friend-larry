@@ -1,13 +1,124 @@
-[gd_scene load_steps=2 format=3 uid="uid://n7s2e3u3sog2"]
+[gd_scene load_steps=14 format=3 uid="uid://n7s2e3u3sog2"]
 
 [ext_resource type="PackedScene" uid="uid://jkytk54paja8" path="res://player/player.tscn" id="1_jbdo5"]
+[ext_resource type="Script" path="res://levels/level_03/level_03_manager.gd" id="1_w3m67"]
+[ext_resource type="Texture2D" uid="uid://brge6xsiqvt3" path="res://assets/terrains/Dark/texture_06.png" id="2_tmkij"]
+[ext_resource type="PackedScene" uid="uid://c7occw257ygik" path="res://victory_zone/vicotry_zone.tscn" id="3_rmhr4"]
+[ext_resource type="Texture2D" uid="uid://dug7wx6c8hx85" path="res://assets/terrains/Orange/texture_13.png" id="5_kg4i4"]
+[ext_resource type="PackedScene" uid="uid://dwviw2wx2qi1t" path="res://door/door.tscn" id="5_w1hve"]
+[ext_resource type="PackedScene" uid="uid://cloonwap75jrl" path="res://barry/barry.tscn" id="6_fgfmk"]
+[ext_resource type="PackedScene" uid="uid://bhbeevqymkb3t" path="res://button/world_button.tscn" id="7_yltc4"]
+[ext_resource type="PackedScene" uid="uid://dgosjgukbd142" path="res://larry/capsule_larry_spawn_point.tscn" id="8_76rx2"]
+[ext_resource type="PackedScene" uid="uid://bhfbs0a8pr0ih" path="res://menus/pause_menu/pause_menu.tscn" id="10_edu00"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf4xu"]
+albedo_texture = ExtResource("2_tmkij")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwq04"]
+albedo_texture = ExtResource("5_kg4i4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdl7o"]
+albedo_texture = ExtResource("5_kg4i4")
 
 [node name="level_03" type="Node3D"]
+script = ExtResource("1_w3m67")
 
-[node name="terrain" type="CSGBox3D" parent="."]
-transform = Transform3D(43.4435, 0, 0, 0, 0.112792, 0, 0, 0, 38.9663, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.184339, 0.18827, 0.964662, -0.464782, 0.881505, -0.0832244, 0, 18.7378, 0)
+shadow_enabled = true
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="walls" type="Node3D" parent="map"]
+
+[node name="wall" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(26.5395, 0, 0, 0, 6.85923, 0, 0, 0, 0.356443, -1.41411, 2.60277, 0)
 use_collision = true
 collision_layer = 2
 
+[node name="wall9" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(26.5395, 0, 0, 0, 6.85923, 0, 0, 0, 0.356443, -1.41411, 2.60277, 9.99311)
+use_collision = true
+collision_layer = 2
+
+[node name="wall2" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(-7.95072e-07, 0, 0.356443, 0, 6.85923, 0, -18.1891, 0, -1.55806e-08, 0, 2.60277, -3.97312)
+use_collision = true
+collision_layer = 2
+
+[node name="wall7" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(-1.69637e-07, 0, 0.356443, 0, 6.85923, 0, -3.88084, 0, -1.55806e-08, 0, 2.60277, -17.9669)
+use_collision = true
+collision_layer = 2
+
+[node name="wall10" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(-5.45713e-07, 0, 0.356443, 0, 6.85923, 0, -12.4845, 0, -1.55806e-08, 0, 2.60277, 14.248)
+use_collision = true
+collision_layer = 2
+
+[node name="wall8" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(-4.4961e-07, 0, 0.356443, 0, 6.85923, 0, -10.2859, 0, -1.55806e-08, 11.6834, 2.60277, 5.07242)
+use_collision = true
+collision_layer = 2
+
+[node name="wall3" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(-1.76151e-06, 0, 0.356443, 0, 6.85923, 0, -40.2986, 0, -1.55806e-08, 22.9849, 2.60277, 0)
+use_collision = true
+collision_layer = 2
+
+[node name="wall4" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(-1.76151e-06, 0, 0.356443, 0, 6.85923, 0, -40.2986, 0, -1.55806e-08, -23.2151, 2.60277, 0)
+use_collision = true
+collision_layer = 2
+
+[node name="wall5" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(45.8211, 0, 0, 0, 6.85923, 0, 0, 0, 0.356443, 0.0942297, 2.60277, 20.0541)
+use_collision = true
+collision_layer = 2
+
+[node name="wall6" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(45.8211, 0, 0, 0, 6.85923, 0, 0, 0, 0.356443, 0.0942297, 2.60277, -20.0245)
+use_collision = true
+collision_layer = 2
+
+[node name="plain" type="CSGBox3D" parent="map"]
+transform = Transform3D(46.3323, 0, 0, 0, 0.397023, 0, 0, 0, 40.4967, 0, -0.806594, 0)
+material_override = SubResource("StandardMaterial3D_mf4xu")
+use_collision = true
+collision_layer = 2
+
+[node name="victory_zone" parent="map" instance=ExtResource("3_rmhr4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 5.16008, -0.561879, 5.83193)
+
+[node name="door" parent="map" instance=ExtResource("5_w1hve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028616, 1.04702, -14.5531)
+
+[node name="door2" parent="map" instance=ExtResource("5_w1hve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028616, 0.970406, 6.57337)
+
+[node name="openable_door" parent="map/door2" index="2"]
+material_override = SubResource("StandardMaterial3D_vwq04")
+
+[node name="world_button" parent="map" instance=ExtResource("7_yltc4")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.22298, -0.528302, 17.7006)
+
+[node name="world_button2" parent="map" instance=ExtResource("7_yltc4")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.28261, -0.528302, 12.267)
+
+[node name="button" parent="map/world_button2" index="1"]
+material_override = SubResource("StandardMaterial3D_mdl7o")
+
+[node name="capsule_larry_spawn_point" parent="map" instance=ExtResource("8_76rx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91091, -0.56189, -4.29394)
+
 [node name="player" parent="." instance=ExtResource("1_jbdo5")]
-transform = Transform3D(0.612866, 0, 0.790187, 0, 1, 0, -0.790187, 0, 0.612866, 17.6694, 0, 14.5861)
+transform = Transform3D(0.612866, 0, 0.790187, 0, 1, 0, -0.790187, 0, 0.612866, 17.6694, -0.655921, 14.5861)
+
+[node name="barry" parent="." instance=ExtResource("6_fgfmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5342, 0.538567, -13.7401)
+
+[node name="pause_menu" parent="." instance=ExtResource("10_edu00")]
+visible = false
+
+[editable path="map/door2"]
+[editable path="map/world_button2"]

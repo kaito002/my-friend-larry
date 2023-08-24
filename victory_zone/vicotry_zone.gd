@@ -1,4 +1,5 @@
 extends CSGCylinder3D
+class_name VictoryZone
 
 signal victory()
 

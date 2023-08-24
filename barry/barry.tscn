@@ -80,7 +80,7 @@ _data = {
 [node name="barry" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 128
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_32y16")
 
 [node name="body" type="MeshInstance3D" parent="."]
@@ -114,5 +114,8 @@ libraries = {
 "": SubResource("AnimationLibrary_ueqtv")
 }
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
 [connection signal="body_entered" from="player_detector" to="." method="_on_player_entered"]
 [connection signal="body_entered" from="killing_zone" to="." method="_on_killing_zone_body_entered"]
+[connection signal="body_exited" from="killing_zone" to="." method="_on_killing_zone_body_exited"]

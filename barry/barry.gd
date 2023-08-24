@@ -22,7 +22,7 @@ func _physics_process(delta):
 	
 	var direction = (target.global_position - global_position).normalized()
 	
-	if direction:
+	if direction && should_run:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
@@ -33,6 +33,7 @@ func _physics_process(delta):
 
 func _on_player_entered(body):
 	if (body is Player || body is Larry):
+		should_run = true
 		target = body
 
 
@@ -41,4 +42,7 @@ func _on_killing_zone_body_entered(body):
 		should_run = false
 	if (body is Player):
 		emit_signal('kill_player')
-		print("player killed")
+
+
+func _on_killing_zone_body_exited(body):
+	should_run = true
