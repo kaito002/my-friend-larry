@@ -104,7 +104,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("SphereShape3D_buexn")
 
 [node name="knife" type="CSGPolygon3D" parent="."]
-transform = Transform3D(0.00685844, -0.1806, -0.024206, 0.0682194, 0.0485532, 0.00187681, 0.00420094, -0.493612, 0.00904097, 0.588352, 0.0354654, -0.0627484)
+transform = Transform3D(0.00685844, -0.1806, -0.024206, 0.0682194, 0.0485532, 0.00187681, 0.00420094, -0.493612, 0.00904098, 0.588352, 0.0354654, -0.0627484)
 polygon = PackedVector2Array(0, 0, 1.25464, 0.898328, 4.33794, 1.6334, 1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="knife"]
